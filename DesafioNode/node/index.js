@@ -30,12 +30,24 @@ app.get('/', function(req, res, next) {
     cadastrarUsuario();
 
     listarUsuarios(function (err, driverResult){ 
-       
-       res.send(driverResult);
+              
+       res.send(ObterHtml(driverResult));
 
     });
 });
 
+function ObterHtml(driverResult){
+
+    let html = '<h1>Full Cycle Rocks!</h1>';
+
+      driverResult.forEach(function(entry) {
+
+        html = html.concat(`<p>Id: ${entry.id} - Nome: ${entry.name}</p>`)
+        
+    });
+
+    return(html);
+}
 
 function listarUsuarios(callback) {    
  
