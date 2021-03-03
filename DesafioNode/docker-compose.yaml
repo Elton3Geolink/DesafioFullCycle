@@ -14,9 +14,7 @@ services:
     ports: 
       - "8080:80"
     depends_on: 
-      - app
-    volumes_from:
-    - app
+      - app    
 
   app:
     build: 
